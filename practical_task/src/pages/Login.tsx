@@ -14,30 +14,35 @@ import {
   loginSchema,
   type LoginFormValues,
 } from "../validation/login.schema";
-import {  useNavigate, } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { notifications } from "@mantine/notifications";
+import { IconCircleCheck } from "@tabler/icons-react";
 
 export default function LoginPage() {
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormValues>({
-    mode: "onChange", // 👈 trigger validation onBlur
+    mode: "onChange",
     resolver: zodResolver(loginSchema),
     defaultValues: logindefaultvalue,
   });
 
   const onSubmit = (data: LoginFormValues) => {
-    console.log("Login Success ✅", data);
+    notifications.show({
+      message: `User login sucessfully !!`,
+      color: "yellow",
+      icon: <IconCircleCheck size={25} />,
+      withBorder: true,
+    });
     localStorage.setItem("user", JSON.stringify(data));
-    navigate("/home")
-   
+    navigate("/home");
   };
 
   return (
     <div style={{ backgroundColor: "#eee", minHeight: "100vh" }}>
-      {/* Top Bar */}
       <div
         style={{
           backgroundColor: "#333",
@@ -50,7 +55,6 @@ const navigate=useNavigate()
         Hashtechy
       </div>
 
-      {/* Centered Form */}
       <Container size={420} pt={80}>
         <Paper p="lg" radius="md" bg="#333" style={{ color: "white" }}>
           <Title order={3} mb="lg" style={{ color: "white" }}>

@@ -1,4 +1,3 @@
-
 import {
   AppShell,
   Text,
@@ -17,7 +16,11 @@ import {
   Badge,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { IconHeart,IconAlertTriangle, IconCircleCheck } from "@tabler/icons-react";
+import {
+  IconHeart,
+  IconAlertTriangle,
+  IconCircleCheck,
+} from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -61,8 +64,8 @@ export default function Home() {
         title: "Already in Cart",
         message: `${product.title} is already in your cart.`,
         color: "yellow",
-        icon:<IconAlertTriangle size={25}/>,
-        withBorder:true
+        icon: <IconAlertTriangle size={25} />,
+        withBorder: true,
       });
       return;
     }
@@ -76,8 +79,8 @@ export default function Home() {
       title: "Added to Cart",
       message: `${product.title} added successfully!`,
       color: "green",
-       icon:<IconCircleCheck size={25}/>,
-        withBorder:true
+      icon: <IconCircleCheck size={25} />,
+      withBorder: true,
     });
   };
 
@@ -90,21 +93,20 @@ export default function Home() {
 
   return (
     <>
-      <AppShell
-        padding="md"
-        header={{ height: 60 }}
-      >
+      <AppShell padding="md" header={{ height: 60 }}>
         <AppShell.Header h={60} px="md" bg="dark.9" c="white">
           <Group justify="space-between" h="100%">
             <Group>
-              <Text fw={700} size="lg">Hashtechy</Text>
+              <Text fw={700} size="lg">
+                Hashtechy
+              </Text>
             </Group>
             <Group gap="xs">
               <ActionIcon
                 variant="transparent"
                 color="white"
                 style={{ position: "relative" }}
-                onClick={()=>navigate("/cart")}
+                onClick={() => navigate("/cart")}
               >
                 <Badge
                   color="red"
@@ -123,7 +125,6 @@ export default function Home() {
                 </Badge>
                 <IconHeart size={80} />
               </ActionIcon>
-              
 
               <Burger
                 opened={drawerOpened}
@@ -135,7 +136,9 @@ export default function Home() {
         </AppShell.Header>
 
         <AppShell.Main>
-          <Title order={3} mb="md">All Products Listing</Title>
+          <Title order={3} mb="md">
+            All Products Listing
+          </Title>
 
           <Grid gutter="md">
             {products.map((p) => (
@@ -149,9 +152,15 @@ export default function Home() {
                       fit="contain"
                     />
                   </Card.Section>
-                  <Text fw={600} my="sm" lineClamp={1}>{p.title}</Text>
-                  <Text size="sm" c="dimmed" lineClamp={2}>{p.description}</Text>
-                  <Text fw={700} mt="sm">₹ {p.price}</Text>
+                  <Text fw={600} my="sm" lineClamp={1}>
+                    {p.title}
+                  </Text>
+                  <Text size="sm" c="dimmed" lineClamp={2}>
+                    {p.description}
+                  </Text>
+                  <Text fw={700} mt="sm">
+                    ₹ {p.price}
+                  </Text>
                   <Button
                     fullWidth
                     mt="md"
