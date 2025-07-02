@@ -7,10 +7,11 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const username = localStorage.getItem("username");
-  const email = localStorage.getItem("email");
+  const user = localStorage.getItem("user");
+  console.log("user",user)
+//   const email = localStorage.getItem("email");
 
-  if (!username || !email) {
+  if (!user) {
     return <Navigate to="/login" replace />;
   }
 

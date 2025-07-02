@@ -1,8 +1,11 @@
+import { AppShell } from '@mantine/core'
 import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <AppShell>
+        
+    </AppShell>
   )
 }
 
