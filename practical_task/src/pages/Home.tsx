@@ -88,7 +88,7 @@ export default function Home() {
     localStorage.removeItem("user");
     localStorage.removeItem("cart");
 
-    navigate("/login");
+    navigate("/");
   };
 
   return (

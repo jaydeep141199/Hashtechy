@@ -1,4 +1,3 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProtectedRoute from "./pages/ProtectedRoute";
@@ -10,9 +9,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
-
-        <Route path="/" element={<AppLayout />}>
+        <Route path="/" element={<Login />} />
+        <Route element={<AppLayout />}>
           <Route
             path="/home"
             element={

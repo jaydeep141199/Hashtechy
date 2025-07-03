@@ -96,13 +96,12 @@ export default function AppLayout() {
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("cart");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
     <>
       <AppShell padding="md" header={{ height: 60 }}>
-        {/* Header */}
         <AppShell.Header h={60} px="md" bg="dark.9" c="white">
           <Group justify="space-between" h="100%">
             <Text fw={700}>Hashtechy</Text>
@@ -140,13 +139,11 @@ export default function AppLayout() {
           </Group>
         </AppShell.Header>
 
-        {/* Main Content */}
         <AppShell.Main>
           <Outlet />
         </AppShell.Main>
       </AppShell>
 
-      {/* Sidebar Drawer */}
       <Drawer
         opened={drawerOpened}
         onClose={() => setDrawerOpened(false)}
@@ -172,7 +169,6 @@ export default function AppLayout() {
         </Stack>
       </Drawer>
 
-      {/* Logout Modal */}
       <Modal
         opened={logoutModalOpen}
         onClose={() => setLogoutModalOpen(false)}
