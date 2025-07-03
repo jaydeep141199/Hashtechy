@@ -40,7 +40,6 @@ export default function LoginPage() {
     localStorage.setItem("user", JSON.stringify(data));
     navigate("/home");
   };
-
   return (
     <div style={{ backgroundColor: "#eee", minHeight: "100vh" }}>
       <div
